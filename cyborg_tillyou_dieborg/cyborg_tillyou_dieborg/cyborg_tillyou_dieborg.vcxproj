@@ -20,11 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cleanup.h" />
+    <ClInclude Include="random_number.h" />
     <ClInclude Include="res_path.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cleanup.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="random_number.cpp" />
     <ClCompile Include="res_path.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
