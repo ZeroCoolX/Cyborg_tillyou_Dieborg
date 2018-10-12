@@ -15,39 +15,45 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cleanup.h">
+    <ClInclude Include="TimeController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="res_path.h">
+    <ClInclude Include="ResPath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="random_number.h">
+    <ClInclude Include="RandomNumber.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="drawing_functions.h">
+    <ClInclude Include="DrawingFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="globals.h">
+    <ClInclude Include="Globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cleanup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cleanup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="res_path.cpp">
+    <ClCompile Include="TimeController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="random_number.cpp">
+    <ClCompile Include="ResPath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="drawing_functions.cpp">
+    <ClCompile Include="RandomNumber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="globals.cpp">
+    <ClCompile Include="DrawingFunctions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cleanup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

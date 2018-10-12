@@ -19,19 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cleanup.h" />
-    <ClInclude Include="drawing_functions.h" />
-    <ClInclude Include="globals.h" />
-    <ClInclude Include="random_number.h" />
-    <ClInclude Include="res_path.h" />
+    <ClInclude Include="Cleanup.h" />
+    <ClInclude Include="DrawingFunctions.h" />
+    <ClInclude Include="Globals.h" />
+    <ClInclude Include="RandomNumber.h" />
+    <ClInclude Include="ResPath.h" />
+    <ClInclude Include="TimeController.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cleanup.cpp" />
-    <ClCompile Include="drawing_functions.cpp" />
-    <ClCompile Include="globals.cpp" />
+    <ClCompile Include="Cleanup.cpp" />
+    <ClCompile Include="DrawingFunctions.cpp" />
+    <ClCompile Include="Globals.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="random_number.cpp" />
-    <ClCompile Include="res_path.cpp" />
+    <ClCompile Include="RandomNumber.cpp" />
+    <ClCompile Include="ResPath.cpp" />
+    <ClCompile Include="TimeController.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{AEF2BADD-233A-482D-AAC0-F9B57FEE10A8}</ProjectGuid>

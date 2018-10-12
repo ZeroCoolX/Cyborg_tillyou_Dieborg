@@ -1,7 +1,7 @@
-#include "res_path.h"
+#include "ResPath.h"
 
 
-std::string getResourcePath(const std::string &subDir)
+std::string get_resource_path(const std::string &subDir)
 {
 	// We need to choose the path seperator properly based on which
 	// platform we're running on, since Windows uses a different

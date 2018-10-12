@@ -4,6 +4,6 @@
 #include<ctime>
 #include<cstdlib>
 
-int getRandomNumber(int mod);
+int get_random_number(int mod);
 
 #endif

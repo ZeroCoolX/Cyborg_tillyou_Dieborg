@@ -15,7 +15,7 @@
 		topic2
 */
 
-std::string getResourcePath(const std::string &subDir = "");
+std::string get_resource_path(const std::string &subDir = "");
 
 #endif
 

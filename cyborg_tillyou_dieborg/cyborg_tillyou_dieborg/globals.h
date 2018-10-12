@@ -4,7 +4,7 @@
 #include<string>
 #include<iostream>
 #include<SDL.h>
-#include "random_number.h"
+#include "RandomNumber.h"
 
 class Globals {
 public:
@@ -13,12 +13,10 @@ public:
 
 	// Useful for me as a dev
 	static bool debugging;
-	
-	static int ScreenWidth, ScreenHeight, ScreenScale;
+
+	static int screenWidth, screenHeight, screenScale;
 	static SDL_Renderer* renderer;
 
 };
 
 #endif
-
-

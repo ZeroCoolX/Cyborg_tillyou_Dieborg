@@ -1,4 +1,4 @@
-#include "cleanup.h"
+#include "Cleanup.h"
 
 
 void cleanup(SDL_Window* window)

@@ -1,8 +1,8 @@
 #include "cleanup.h"
-#include "res_path.h"
-#include "drawing_functions.h"
+#include "ResPath.h"
+#include "DrawingFunctions.h"
 #include "SDL_mixer.h"
-#include "globals.h"
+#include "Globals.h"
 
 int main(int argc, char** argv) {
 	// Setup SDL
@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
 
 	// Setup window
 	SDL_Window* window = SDL_CreateWindow("Cybordg Battle", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
-		Globals::ScreenWidth*Globals::ScreenScale, Globals::ScreenHeight*Globals::ScreenScale, SDL_WINDOW_SHOWN); // SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN
+		Globals::screenWidth*Globals::screenScale, Globals::screenHeight*Globals::screenScale, SDL_WINDOW_SHOWN); // SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN
 	if (window == nullptr) {
 		SDL_Quit();
 		cout << "Window error" << endl;
@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
 	// This is the size to draw things at, before we scale it to the screen size dimentions mentioned in createWindow
 	// Useful for pixel art
 	// For example: 2X pixels is half of the windows Height and Width
-	SDL_RenderSetLogicalSize(Globals::renderer, Globals::ScreenWidth, Globals::ScreenHeight);
+	SDL_RenderSetLogicalSize(Globals::renderer, Globals::screenWidth, Globals::screenHeight);
 
 	// Initialize sdl_image
 	if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG) {
@@ -56,15 +56,15 @@ int main(int argc, char** argv) {
 	}
 
 	// Load up a texture to draw
-	string resPath = getResourcePath();
-	SDL_Texture* texture = loadTexture(resPath + "map.png", Globals::renderer);
+	string resPath = get_resource_path();
+	SDL_Texture* texture = load_texture(resPath + "map.png", Globals::renderer);
 
 	// Run game for 5000 ticks (5000ms)
 	while (SDL_GetTicks() < 5000) {
 		// Clear the screen
 		SDL_RenderClear(Globals::renderer);
 		// Draw what we want to the screen
-		renderTexture(texture, Globals::renderer, 0, 0);
+		render_texture(texture, Globals::renderer, 0, 0);
 		// Show image we rendered
 		SDL_RenderPresent(Globals::renderer);
 	}

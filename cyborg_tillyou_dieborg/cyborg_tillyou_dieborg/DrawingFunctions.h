@@ -5,8 +5,8 @@
 #include<SDL.h>
 #include<SDL_image.h>
 #include<SDL_ttf.h>
-#include "res_path.h"
-#include "cleanup.h"
+#include "ResPath.h"
+#include "Cleanup.h"
 
 using namespace std;
 
@@ -16,22 +16,22 @@ using namespace std;
 * @param renderer The renderer to load the texture onto
 * @return the loaded texture, or nullptr if something went wrong.
 */
-SDL_Texture* loadTexture(const std::string &file, SDL_Renderer* renderer);
+SDL_Texture* load_texture(const std::string &file, SDL_Renderer* renderer);
 
 /**
 * Loads an image up as a surface. Generally we want to do this is we want to palette swap
 */
-SDL_Surface* loadSurface(const std::string &file, SDL_Renderer* renderer);
+SDL_Surface* load_surface(const std::string &file, SDL_Renderer* renderer);
 
 /**
 * Copies the palette of 1 surface to another
 */
-void surfacePaletteSwap(SDL_Surface* surface, SDL_Surface* palette);
+void surface_palette_swap(SDL_Surface* surface, SDL_Surface* palette);
 
 /**
 *Converts a surface to a texture and optionally deletes the surface
 */
-SDL_Texture* convertSurfaceToTexture(SDL_Surface* surface, SDL_Renderer* renderer, bool cleanSurface = false);
+SDL_Texture* convert_surface_to_texture(SDL_Surface* surface, SDL_Renderer* renderer, bool cleanSurface = false);
 
 /**
 * Draws an SDL_Texture to an SDL_Renderer at some destination rect
@@ -42,7 +42,7 @@ SDL_Texture* convertSurfaceToTexture(SDL_Surface* surface, SDL_Renderer* rendere
 * @param clip The sub-section of the texture to draw (clipping rect)
 *		default of nullptr draws the entire texture
 */
-void renderTexture(SDL_Texture* texture, SDL_Renderer* renderer, SDL_Rect destination, SDL_Rect* clip = nullptr);
+void render_texture(SDL_Texture* texture, SDL_Renderer* renderer, SDL_Rect destination, SDL_Rect* clip = nullptr);
 
 /**
 * Draw an SDL_Tecture to an SDL_Renderer at position x, y, preserving
@@ -56,7 +56,7 @@ void renderTexture(SDL_Texture* texture, SDL_Renderer* renderer, SDL_Rect destin
 * @param clip The sub-section of the texture to draw (clipping rect)
 *		default of nullptr draws the entire texture
 */
-void renderTexture(SDL_Texture* texture, SDL_Renderer* renderer, int x, int y, SDL_Rect* clip = nullptr);
+void render_texture(SDL_Texture* texture, SDL_Renderer* renderer, int x, int y, SDL_Rect* clip = nullptr);
 
 /**
 * Render the message we want to display to a texture for drawing
@@ -67,7 +67,7 @@ void renderTexture(SDL_Texture* texture, SDL_Renderer* renderer, int x, int y, S
 * @param renderer The renderer to load the texture in
 * @return An SDL_Texture containing the rendered message, or nullptr if something went wrong
 */
-SDL_Texture* renderText(const std::string &message, const std::string &fontFile, SDL_Color color, int fontSize, SDL_Renderer* renderer);
+SDL_Texture* render_text(const std::string &message, const std::string &fontFile, SDL_Color color, int fontSize, SDL_Renderer* renderer);
 
 /**
 * Render the message we want to display to a texture for drawing
@@ -78,9 +78,9 @@ SDL_Texture* renderText(const std::string &message, const std::string &fontFile,
 * @param renderer The renderer to load the texture in
 * @return An SDL_Texture containing the rendered message, or nullptr if something went wrong
 */
-SDL_Texture* renderText(const std::string &message, TTF_Font* font, SDL_Color color, SDL_Renderer* renderer);
+SDL_Texture* render_text(const std::string &message, TTF_Font* font, SDL_Color color, SDL_Renderer* renderer);
 
-bool saveScreenshotBMP(std::string filepath, SDL_Window* window, SDL_Renderer* renderer);
+bool save_screenshot_BMP(std::string filepath, SDL_Window* window, SDL_Renderer* renderer);
 
 #endif
 
