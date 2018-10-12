@@ -13,7 +13,7 @@
 using namespace std;
 
 class Frame {
-private:
+public:
 	int frameNumber; // or index
 	SDL_Rect clip; // Its the region of the spritesheet where this frame is
 	float duration; // how long the frame runs for
