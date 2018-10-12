@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClInclude Include="cleanup.h" />
     <ClInclude Include="drawing_functions.h" />
+    <ClInclude Include="globals.h" />
     <ClInclude Include="random_number.h" />
     <ClInclude Include="res_path.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cleanup.cpp" />
     <ClCompile Include="drawing_functions.cpp" />
+    <ClCompile Include="globals.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="random_number.cpp" />
     <ClCompile Include="res_path.cpp" />

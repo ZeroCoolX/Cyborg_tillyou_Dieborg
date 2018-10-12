@@ -6,7 +6,7 @@
 * @param ren The renderer to load the texture onto
 * @return the loaded texture, or nullptr if something went wrong.
 */
-SDL_Texture * loadTexture(const std::string &file, SDL_Renderer *renderer)
+SDL_Texture *loadTexture(const std::string &file, SDL_Renderer *renderer)
 {
 	SDL_Texture *texture = IMG_LoadTexture(renderer, file.c_str());
 	if (texture == nullptr) {
@@ -18,7 +18,7 @@ SDL_Texture * loadTexture(const std::string &file, SDL_Renderer *renderer)
 /**
 *Loads an image up as a surface. Generally we want to do this if we want to palette swap
 */
-SDL_Surface * loadSurface(const std::string &file, SDL_Renderer *renderer)
+SDL_Surface *loadSurface(const std::string &file, SDL_Renderer *renderer)
 {
 	SDL_Surface *surface = IMG_Load(file.c_str());
 	if (surface == nullptr) {
@@ -38,7 +38,7 @@ void surfacePaletteSwap(SDL_Surface *surface, SDL_Surface *palette)
 /**
 *Converts a surface to a texture and optionally deletes the surface
 */
-SDL_Texture* convertSurfaceToTexture(SDL_Surface *surface, SDL_Renderer *renderer, bool cleanSurface)
+SDL_Texture *convertSurfaceToTexture(SDL_Surface *surface, SDL_Renderer *renderer, bool cleanSurface)
 {
 	SDL_Texture	*texture = SDL_CreateTextureFromSurface(renderer, surface);
 	if (cleanSurface) {
@@ -97,7 +97,7 @@ void renderTexture(SDL_Texture *texture, SDL_Renderer *renderer, int x, int y, S
 * @param renderer The renderer to load the texture in
 * @return An SDL_Texture containing the rendered message, or nullptr if something went wrong
 */
-SDL_Texture * renderText(const std::string &message, const std::string &fontFile, SDL_Color color, int fontSize, SDL_Renderer *renderer)
+SDL_Texture *renderText(const std::string &message, const std::string &fontFile, SDL_Color color, int fontSize, SDL_Renderer *renderer)
 {
 	// Open the font
 	TTF_Font *font = TTF_OpenFont(fontFile.c_str(), fontSize);
@@ -129,7 +129,7 @@ SDL_Texture * renderText(const std::string &message, const std::string &fontFile
 * @param renderer The renderer to load the texture in
 * @return An SDL_Texture containing the rendered message, or nullptr if something went wrong
 */
-SDL_Texture * renderText(const std::string &message, TTF_Font *font, SDL_Color color, SDL_Renderer *renderer)
+SDL_Texture *renderText(const std::string &message, TTF_Font* font, SDL_Color color, SDL_Renderer* renderer)
 {
 	if (font == nullptr) {
 		cout << "TTF_OpenFont" << endl;
@@ -137,12 +137,12 @@ SDL_Texture * renderText(const std::string &message, TTF_Font *font, SDL_Color c
 	}
 	//We need to first render to a surface as that's what TTF_RenderText
 	//returns, then load that surface into a texture
-	SDL_Surface *surface = TTF_RenderText_Blended(font, message.c_str(), color);
+	SDL_Surface* surface = TTF_RenderText_Blended(font, message.c_str(), color);
 	if (surface == nullptr) {
 		cout << "TTF_RenderText" << endl;
 		return nullptr;
 	}
-	SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 	if (texture == nullptr) {
 		cout << "CreateTexture" << endl;
 	}
@@ -151,16 +151,16 @@ SDL_Texture * renderText(const std::string &message, TTF_Font *font, SDL_Color c
 	return texture;
 }
 
-bool saveScreenshotBMP(std::string filepath, SDL_Window *window, SDL_Renderer *renderer)
+bool saveScreenshotBMP(std::string filepath, SDL_Window* window, SDL_Renderer* renderer)
 {
-	SDL_Surface *saveSurface = NULL;
-	SDL_Surface *infoSurface = NULL;
+	SDL_Surface* saveSurface = NULL;
+	SDL_Surface* infoSurface = NULL;
 	infoSurface = SDL_GetWindowSurface(window);
 	if (infoSurface == NULL) {
 		std::cerr << "Failed to create info surface from window in saveScreenshotBMP(string), SDL_GetError() - " << SDL_GetError() << "\n" << endl;
 	}
 	else {
-		unsigned char *pixels = new (std::nothrow) unsigned char[infoSurface->w * infoSurface->h * infoSurface->format->BytesPerPixel];
+		unsigned char* pixels = new (std::nothrow) unsigned char[infoSurface->w * infoSurface->h * infoSurface->format->BytesPerPixel];
 		if (pixels == 0) {
 			std::cerr << "Unable to allocate memory for screenshot pixel data buffer!\n" << endl;
 			return false;

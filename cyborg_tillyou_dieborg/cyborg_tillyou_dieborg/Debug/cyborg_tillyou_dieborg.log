@@ -1,3 +1,6 @@
 ﻿  main.cpp
+  globals.cpp
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\globals.cpp(3): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating Code...
   cyborg_tillyou_dieborg.vcxproj -> C:\Users\Mitinz\Documents\development\Udemy_CyborgTillYouDieborg\cyborg_tillyou_dieborg\Debug\cyborg_tillyou_dieborg.exe
   cyborg_tillyou_dieborg.vcxproj -> C:\Users\Mitinz\Documents\development\Udemy_CyborgTillYouDieborg\cyborg_tillyou_dieborg\Debug\cyborg_tillyou_dieborg.pdb (Partial PDB)

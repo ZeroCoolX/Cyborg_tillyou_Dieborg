@@ -1,7 +1,7 @@
 #include "cleanup.h"
 
 
-void cleanup(SDL_Window *window)
+void cleanup(SDL_Window* window)
 {
 	if (!window) {
 		return;
@@ -9,7 +9,7 @@ void cleanup(SDL_Window *window)
 	SDL_DestroyWindow(window);
 }
 
-void cleanup(SDL_Renderer *renderer)
+void cleanup(SDL_Renderer* renderer)
 {
 	if (!renderer) {
 		return;
@@ -17,7 +17,7 @@ void cleanup(SDL_Renderer *renderer)
 	SDL_DestroyRenderer(renderer);
 }
 
-void cleanup(SDL_Texture *texture)
+void cleanup(SDL_Texture* texture)
 {
 	if (!texture) {
 		return;
@@ -25,7 +25,7 @@ void cleanup(SDL_Texture *texture)
 	SDL_DestroyTexture(texture);
 }
 
-void cleanup(SDL_Surface *surface)
+void cleanup(SDL_Surface* surface)
 {
 	if (!surface) {
 		return;
