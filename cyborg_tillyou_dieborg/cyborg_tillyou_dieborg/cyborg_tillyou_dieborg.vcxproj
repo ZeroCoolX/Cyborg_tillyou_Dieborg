@@ -20,8 +20,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cleanup.h" />
+    <ClInclude Include="DataGroupType.h" />
     <ClInclude Include="DrawingFunctions.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="Group.h" />
+    <ClInclude Include="GroupBox.h" />
+    <ClInclude Include="GroupBuilder.h" />
+    <ClInclude Include="GroupNumber.h" />
+    <ClInclude Include="GroupPosition.h" />
+    <ClInclude Include="GroupString.h" />
     <ClInclude Include="RandomNumber.h" />
     <ClInclude Include="ResPath.h" />
     <ClInclude Include="TimeController.h" />
@@ -30,6 +37,7 @@
     <ClCompile Include="Cleanup.cpp" />
     <ClCompile Include="DrawingFunctions.cpp" />
     <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="GroupBuilder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RandomNumber.cpp" />
     <ClCompile Include="ResPath.cpp" />
