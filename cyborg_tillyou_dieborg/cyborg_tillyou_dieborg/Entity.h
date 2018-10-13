@@ -71,7 +71,7 @@ public:
 	static list<Entity*> entities;
 	static bool entity_compare(const Entity* const& entity, const Entity* const& otherEntity); // const pointer pointing to a const Entity (compare by Y)
 	static void remove_inactive_entities(list<Entity*> *entityList, bool deleteEntities);
-	static void remove_all_entities(list<Entity*> *entityList);
+	static void remove_all_entities(list<Entity*> *entityList, bool deleteEntities);
 };
 
 #endif // !ENTITIY

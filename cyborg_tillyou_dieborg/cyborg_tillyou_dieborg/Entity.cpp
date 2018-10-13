@@ -264,15 +264,40 @@ float Entity::angle_between_two_rects(SDL_Rect& r1, SDL_Rect& r2)
 	return angle_between_two_points(px1, py1, px2, py2);
 }
 
-bool Entity::entity_compare(const Entity * const & entity, const Entity * const & otherEntity)
+// Compares if entity is > otherEntity based off Y value
+bool Entity::entity_compare(const Entity* const& entity, const Entity* const& otherEntity)
 {
-	return false;
+	if (entity != 0 && otherEntity != 0) {
+		return (entity->y < otherEntity->y);
+	}
+	else {
+		// two empty entities
+		return false;
+	}
+
 }
 
 void Entity::remove_inactive_entities(list<Entity*>* entityList, bool deleteEntities)
 {
+	for (auto entityIterator = entityList->begin(); entityIterator != entityList->end();/*might be able to put ++ back in....*/) {
+		if (!(*entityIterator)->active) {
+			if (deleteEntities) {
+				delete (*entityIterator);
+			}
+			entityIterator = entityList->erase(entityIterator);
+		}
+		else {
+			++entityIterator;
+		}
+	}
 }
 
-void Entity::remove_all_entities(list<Entity*>* entityList)
+void Entity::remove_all_entities(list<Entity*>* entityList, bool deleteEntities)
 {
+	for (auto entityIterator = entityList->begin(); entityIterator != entityList->end();/*might be able to put ++ back in....*/) {
+		if (deleteEntities) {
+				delete (*entityIterator);
+		}
+		entityIterator = entityList->erase(entityIterator);
+	}
 }
