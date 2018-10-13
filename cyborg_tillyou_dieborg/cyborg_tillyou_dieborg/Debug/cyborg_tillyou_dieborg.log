@@ -1,2 +1,13 @@
-﻿  cyborg_tillyou_dieborg.vcxproj -> C:\Users\Mitinz\Documents\development\Udemy_CyborgTillYouDieborg\cyborg_tillyou_dieborg\Debug\cyborg_tillyou_dieborg.exe
+﻿  Game.cpp
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(54): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(61): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(62): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(70): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(71): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(77): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(78): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  cyborg_tillyou_dieborg.vcxproj -> C:\Users\Mitinz\Documents\development\Udemy_CyborgTillYouDieborg\cyborg_tillyou_dieborg\Debug\cyborg_tillyou_dieborg.exe
   cyborg_tillyou_dieborg.vcxproj -> C:\Users\Mitinz\Documents\development\Udemy_CyborgTillYouDieborg\cyborg_tillyou_dieborg\Debug\cyborg_tillyou_dieborg.pdb (Partial PDB)
