@@ -15,7 +15,7 @@ public:
 	int m_state;
 
 	// position
-	float x, y;
+	float m_x, m_y;
 	int m_direction;
 	
 	// physical mass

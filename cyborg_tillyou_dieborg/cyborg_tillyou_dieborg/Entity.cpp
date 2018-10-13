@@ -11,7 +11,7 @@ void Entity::update(){}// override me to do something useful
 void Entity::draw()
 {
 	if (m_currentFrame != NULL && m_active) {
-		m_currentFrame->draw(m_animSet->m_spriteSheet, x, y);
+		m_currentFrame->draw(m_animSet->m_spriteSheet, m_x, m_y);
 	}
 
 	// draw collision box
@@ -51,8 +51,8 @@ void Entity::update_movement()
 			float xMove = moveDist* (cos(m_moveAngle * Globals::PI / 180));
 			float yMove = moveDist* (sin(m_moveAngle * Globals::PI / 180));
 
-			x += xMove;
-			y += yMove;
+			m_x += xMove;
+			m_y += yMove;
 
 			m_totalXMove = xMove;
 			m_totalYMove = yMove;
@@ -69,8 +69,8 @@ void Entity::update_movement()
 			float xMove = pushbackDist* (cos(m_pushbackAngle * Globals::PI / 180));
 			float yMove = pushbackDist* (sin(m_pushbackAngle * Globals::PI / 180));
 
-			x += xMove;
-			y += yMove;
+			m_x += xMove;
+			m_y += yMove;
 
 			m_totalXMove += xMove;
 			m_totalYMove += yMove;
@@ -89,8 +89,8 @@ void Entity::update_movement()
 void Entity::update_collision_box()
 {
 	// center collision box 
-	m_collisionBox.x = x - m_collisionBox.w / 2;
-	m_collisionBox.y = y + m_collisionBoxYOffset;
+	m_collisionBox.x = m_x - m_collisionBox.w / 2;
+	m_collisionBox.y = m_y + m_collisionBoxYOffset;
 	m_collisionBox.w = m_collisionBoxWidth;
 	m_collisionBox.h = m_collisionBoxHeight;
 }
@@ -182,8 +182,8 @@ void Entity::update_collisions()
 			if (foundCollision) {
 				// move our entity to where the sample box ended up
 				m_pushbackAmount = m_pushbackAmount / 2;
-				x = sampleBox.x + sampleBox.w / 2;
-				y = sampleBox.y - m_collisionBoxYOffset;
+				m_x = sampleBox.x + sampleBox.w / 2;
+				m_y = sampleBox.y - m_collisionBoxYOffset;
 			}
 			update_collision_box();
 		}
@@ -207,13 +207,13 @@ float Entity::distance_between_two_rects(SDL_Rect & r1, SDL_Rect & r2)
 
 float Entity::distance_between_two_entities(Entity* e1, Entity* e2)
 {
-	return abs(sqrt(pow(e1->x - e1->x, 2) + pow(e2->y - e2->y, 2)));
+	return abs(sqrt(pow(e1->m_x - e1->m_x, 2) + pow(e2->m_y - e2->m_y, 2)));
 }
 
 float Entity::angle_between_two_entities(Entity* e1, Entity* e2)
 {
 	float dx, dy;
-	float x1 = e1->x, y1 = e1->y, x2 = e2->x, y2 = e2->y;
+	float x1 = e1->m_x, y1 = e1->m_y, x2 = e2->m_x, y2 = e2->m_y;
 	
 	dx = x2 - x1;
 	dy = y2 - y1;
@@ -268,7 +268,7 @@ float Entity::angle_between_two_rects(SDL_Rect& r1, SDL_Rect& r2)
 bool Entity::entity_compare(const Entity* const& entity, const Entity* const& otherEntity)
 {
 	if (entity != 0 && otherEntity != 0) {
-		return (entity->y < otherEntity->y);
+		return (entity->m_y < otherEntity->m_y);
 	}
 	else {
 		// two empty entities
