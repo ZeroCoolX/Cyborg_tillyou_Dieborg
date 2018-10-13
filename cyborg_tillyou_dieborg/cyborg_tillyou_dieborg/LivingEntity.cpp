@@ -11,8 +11,8 @@ void LivingEntity::update_hit_box()
 	if (hitBoxes != NULL && hitBoxes->number_of_data_in_group() > 0) {
 		// read hitbox data and update
 		SDL_Rect hitBox = hitBoxes->m_data.front();
-		m_damageAreaHitBox.x = (m_x - m_currentFrame->m_offset.x) + hitBox.x;
-		m_damageAreaHitBox.y = (m_y - m_currentFrame->m_offset.y) + hitBox.y;
+		m_damageAreaHitBox.x = m_x - m_currentFrame->m_offset.x + hitBox.x;
+		m_damageAreaHitBox.y = m_y - m_currentFrame->m_offset.y + hitBox.y;
 		m_damageAreaHitBox.w = hitBox.w;
 		m_damageAreaHitBox.h = hitBox.h;
 

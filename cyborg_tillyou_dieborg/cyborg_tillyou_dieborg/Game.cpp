@@ -146,6 +146,9 @@ void Game::draw()
 	// Draw the background
 	render_texture(m_backgroundImage, Globals::renderer, 0, 0);
 
+	// sort all entities based on Y depth
+	Entity::entities.sort(Entity::entity_compare);
+
 	// Draw all of the entities
 	for (auto entityIterator = Entity::entities.begin(); entityIterator != Entity::entities.end(); ++entityIterator) {
 		(*entityIterator)->draw();

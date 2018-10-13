@@ -97,7 +97,7 @@ void GroupBuilder::load_groups(ifstream& file, list<Group*>& groups)
 				// Cannot find the group but lets not lose the data
 				group = add_group_string_to_group(line.substr(0, pos), groups);
 			}
-			//line = Globals::clip_off_data_header(line);//get rid of the 'groupName: '
+			line = Globals::clip_off_data_header(line);//get rid of the 'groupName: '
 			group->add_to_group(line);
 		}
 	}
