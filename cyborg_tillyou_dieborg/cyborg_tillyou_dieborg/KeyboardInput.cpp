@@ -31,8 +31,8 @@ void KeyboardInput::update(SDL_Event* e)
 	// check for keys being held
 	const Uint8* keyStates = SDL_GetKeyboardState(NULL);
 	// if hero not able to move or no direction buttons are held down, then stop moving
-	if ((m_hero->m_state != Hero::HERO_STATE_MOVE && m_hero->m_state != Hero::HERO_STATE_IDLE) || 
-		!(keyStates[UP] || keyStates[DOWN] || keyStates[LEFT] || keyStates[RIGHT])) { // !up && !down && !left && !right
+	if ((m_hero->m_state != Hero::HERO_STATE_MOVE && m_hero->m_state != Hero::HERO_STATE_IDLE)
+		|| (!keyStates[UP] && !keyStates[DOWN] && !keyStates[LEFT] && !keyStates[RIGHT])){
 		m_hero->m_moving = false;
 	}
 	else {

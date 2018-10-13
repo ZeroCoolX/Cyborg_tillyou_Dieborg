@@ -99,6 +99,7 @@ void Entity::update_collisions()
 {
 	// Don't want to check for collisions if standing still - just implementation for now
 	if (m_active && m_collideWithSolids && (m_moveSpeed > 0 || m_pushbackAmount > 0)) {
+		cout << "Hero Entity is moving? -> " << m_moving  << " MoveSpeed: " << m_moveSpeed << " slideAmount: " << m_pushbackAmount << endl;
 		// List of potential collisions
 		// this->collisionBox = union of where they were before and where they are now
 		list<Entity*> collisions;
@@ -130,9 +131,10 @@ void Entity::update_collisions()
 
 			bool foundCollision = false;
 			while (!foundCollision) {
+				cout << "Infinity check 2 Hero Entity is moving? -> " << m_moving << " MoveSpeed: " << m_moveSpeed << " slideAmount: " << m_pushbackAmount << endl;
 				SDL_Rect intersection;
-				for (auto entity = collisions.begin(); entity != collisions.end(); ++entity) {
-					if (SDL_IntersectRect(&sampleBox, &((*entity)->m_collisionBox), &intersection)) {
+				for (auto entity = collisions.begin(); entity != collisions.end(); entity++) {
+					if (SDL_IntersectRect(&sampleBox, &(*entity)->m_collisionBox, &intersection)) {
 						// This indicates there was a collision - update!
 						foundCollision = true;
 						m_moveSpeed = 0;
@@ -161,9 +163,12 @@ void Entity::update_collisions()
 								sampleBox.y += intersection.h;
 							}
 						}
+					}else{
+						cout << "Not colliding with shit" << endl;
 					}
 				}
 				if (foundCollision || (sampleBox.x == m_collisionBox.x && sampleBox.y == m_collisionBox.y)) {
+					cout << " breaking out!" << endl;
 					break;
 				}
 
@@ -193,21 +198,22 @@ void Entity::update_collisions()
 /* HELPER FUNCTIONS */
 float Entity::distance_between_two_rects(SDL_Rect & r1, SDL_Rect & r2)
 {
-	SDL_Point p1, p2;
-	p1.x = r1.x + r1.w / 2; // center x value of first rect
-	p1.y = r1.y + r1.h / 2; // center y value of first rect
+	SDL_Point e1, e2;
+	e1.x = r1.x + r1.w / 2;
+	e1.y = r1.y + r1.h / 2;
 
-	p2.x = r2.x + r2.w / 2; // center x value of second rect
-	p2.y = r2.y + r2.h / 2; // center y value of second rect
+	e2.x = r2.x + r2.w / 2;
+	e2.y = r2.y + r2.h / 2;
 
 	// d = (x2 - x1)^2 + (y2 - y1)^2
-	float dist = abs(sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2)));
-	return dist;
+	float d = abs(sqrt(pow(e2.x - e1.x, 2) + pow(e2.y - e1.y, 2)));
+	return d;
 }
 
 float Entity::distance_between_two_entities(Entity* e1, Entity* e2)
 {
-	return abs(sqrt(pow(e1->m_x - e1->m_x, 2) + pow(e2->m_y - e2->m_y, 2)));
+	float d = abs(sqrt(pow(e2->m_x - e1->m_x, 2) + pow(e2->m_y - e1->m_y, 2)));
+	return d;
 }
 
 float Entity::angle_between_two_entities(Entity* e1, Entity* e2)
@@ -225,8 +231,11 @@ float Entity::angle_between_two_entities(Entity* e1, Entity* e2)
 bool Entity::check_collides_with(SDL_Rect cbox, SDL_Rect otherCBox)
 {
 	SDL_Rect intersection;
-	return SDL_IntersectRect(&cbox, &otherCBox, &intersection);// don't care about storing the result - just checking if it intersects
-	// other possibilities for collision is if a rectangle is inside another rectangle
+	if (SDL_IntersectRect(&cbox, &otherCBox, &intersection))
+	{
+		return true;
+	}
+	return false;
 }
 
 // Convert 360 degree angle into const DIR
