@@ -20,7 +20,7 @@ public:
 	void resume();
 	void reset();
 
-	static TimeController timeController;
+	static TimeController s_timeController;
 };
 
 #endif

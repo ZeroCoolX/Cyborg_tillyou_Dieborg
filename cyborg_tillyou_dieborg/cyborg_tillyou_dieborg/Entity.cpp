@@ -46,7 +46,7 @@ void Entity::update_movement()
 	m_totalYMove = 0;
 
 	if (m_moveSpeed > 0) {
-		float moveDist = m_moveSpeed*TimeController::timeController.m_deltaTimeInSeconds*m_moveLerp;
+		float moveDist = m_moveSpeed*TimeController::s_timeController.m_deltaTimeInSeconds*m_moveLerp;
 		if (moveDist > 0) {
 			float xMove = moveDist* (cos(m_moveAngle * Globals::PI / 180));
 			float yMove = moveDist* (sin(m_moveAngle * Globals::PI / 180));
@@ -64,7 +64,7 @@ void Entity::update_movement()
 	}
 
 	if (m_pushbackAmount > 0) {
-		float pushbackDist = m_pushbackAmount*TimeController::timeController.m_deltaTimeInSeconds*m_moveLerp;
+		float pushbackDist = m_pushbackAmount*TimeController::s_timeController.m_deltaTimeInSeconds*m_moveLerp;
 		if (pushbackDist > 0) {
 			float xMove = pushbackDist* (cos(m_pushbackAngle * Globals::PI / 180));
 			float yMove = pushbackDist* (sin(m_pushbackAngle * Globals::PI / 180));

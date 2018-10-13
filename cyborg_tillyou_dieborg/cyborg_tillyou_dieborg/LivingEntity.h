@@ -6,7 +6,8 @@
 // ABSTRACT CLASS
 class LivingEntity : public Entity {
 public:
-	const string HITBOX_NAME = "hitBox";
+	const string HITBOX_GROUP_NAME = "hitBox";
+	const string DAMAGE_GROUP_NAME = "damage";
 
 	int m_health, m_maxHealth;
 	int m_damage = 0;

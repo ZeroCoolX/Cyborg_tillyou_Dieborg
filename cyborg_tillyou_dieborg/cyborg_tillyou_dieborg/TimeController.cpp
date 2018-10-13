@@ -36,6 +36,6 @@ void TimeController::reset()
 }
 
 // Builds a global TimeController object for use anywhere
-TimeController TimeController::timeController;
+TimeController TimeController::s_timeController;
 
 
