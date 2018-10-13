@@ -33,6 +33,8 @@
     <ClInclude Include="GroupNumber.h" />
     <ClInclude Include="GroupPosition.h" />
     <ClInclude Include="GroupString.h" />
+    <ClInclude Include="Hero.h" />
+    <ClInclude Include="KeyboardInput.h" />
     <ClInclude Include="LivingEntity.h" />
     <ClInclude Include="RandomNumber.h" />
     <ClInclude Include="ResPath.h" />
@@ -47,6 +49,8 @@
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="GroupBuilder.cpp" />
+    <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="KeyboardInput.cpp" />
     <ClCompile Include="LivingEntity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RandomNumber.cpp" />
