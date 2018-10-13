@@ -15,7 +15,7 @@ std::string get_resource_path(const std::string &subDir)
 
 	// This will hold the base resource path
 	// We give it static lifetime so that we'll only need to call 
-	// SDL_GetBasePAth once to get the exe path
+	// SDL_GetBasePath once to get the exe path
 	static std::string baseRes;
 	if (baseRes.empty()) {
 		// SDL_GetBasePath will return NULL if something went wrong in retrieving the path

@@ -19,9 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="AnimationSet.h" />
     <ClInclude Include="Cleanup.h" />
     <ClInclude Include="DataGroupType.h" />
     <ClInclude Include="DrawingFunctions.h" />
+    <ClInclude Include="Frame.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Group.h" />
     <ClInclude Include="GroupBox.h" />
@@ -34,8 +37,11 @@
     <ClInclude Include="TimeController.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AnimationSet.cpp" />
     <ClCompile Include="Cleanup.cpp" />
     <ClCompile Include="DrawingFunctions.cpp" />
+    <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="GroupBuilder.cpp" />
     <ClCompile Include="main.cpp" />

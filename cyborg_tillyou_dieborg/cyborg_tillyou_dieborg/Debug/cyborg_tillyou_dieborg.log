@@ -1,7 +1,3 @@
-﻿  TimeController.cpp
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\timecontroller.cpp(17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  GroupBuilder.cpp
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\groupbuilder.cpp(53): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
-  Generating Code...
+﻿  Globals.cpp
   cyborg_tillyou_dieborg.vcxproj -> C:\Users\Mitinz\Documents\development\Udemy_CyborgTillYouDieborg\cyborg_tillyou_dieborg\Debug\cyborg_tillyou_dieborg.exe
   cyborg_tillyou_dieborg.vcxproj -> C:\Users\Mitinz\Documents\development\Udemy_CyborgTillYouDieborg\cyborg_tillyou_dieborg\Debug\cyborg_tillyou_dieborg.pdb (Partial PDB)

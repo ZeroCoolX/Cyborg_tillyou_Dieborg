@@ -22,8 +22,7 @@ public:
 	list<Group*> frameData; // Holds groups of additional data for the frame
 
 	void draw(SDL_Texture* spriteSheet, float x, float y);
-
-	// TODO load_frame
+	void load_frame(ifstream& file, list<DataGroupType>& groupTypes);
 };
 
 #endif // !FRAME
