@@ -39,6 +39,7 @@
     <ClInclude Include="RandomNumber.h" />
     <ClInclude Include="ResPath.h" />
     <ClInclude Include="TimeController.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
@@ -56,6 +57,7 @@
     <ClCompile Include="RandomNumber.cpp" />
     <ClCompile Include="ResPath.cpp" />
     <ClCompile Include="TimeController.cpp" />
+    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{AEF2BADD-233A-482D-AAC0-F9B57FEE10A8}</ProjectGuid>
