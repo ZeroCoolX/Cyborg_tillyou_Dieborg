@@ -197,6 +197,9 @@ void Hero::update_animation()
 	}
 
 	if (m_state == HERO_STATE_MOVE && !m_moving) {
+		change_animation(HERO_STATE_IDLE, true);
+	}
+	if (m_state != HERO_STATE_MOVE && m_moving) {
 		change_animation(HERO_STATE_MOVE, true);
 	}
 
@@ -213,7 +216,7 @@ void Hero::update_animation()
 				change_animation(HERO_STATE_MOVE, true);
 			}
 			else {
-				m_currentFrame = m_currentAnim->get_next_frame(0);
+				m_currentFrame = m_currentAnim->get_frame(0);
 			}
 		}
 		else {

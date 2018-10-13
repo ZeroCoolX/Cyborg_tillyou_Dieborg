@@ -224,7 +224,8 @@ float Entity::angle_between_two_entities(Entity* e1, Entity* e2)
 
 bool Entity::check_collides_with(SDL_Rect cbox, SDL_Rect otherCBox)
 {
-	return SDL_IntersectRect(&cbox, &otherCBox, nullptr);// don't care about storing the result - just checking if it intersects
+	SDL_Rect intersection;
+	return SDL_IntersectRect(&cbox, &otherCBox, &intersection);// don't care about storing the result - just checking if it intersects
 	// other possibilities for collision is if a rectangle is inside another rectangle
 }
 
@@ -235,13 +236,13 @@ int Entity::angle_to_direction(float angle)
 		return DIR_RIGHT;
 	}
 	else if(angle > 45 && angle <= 135){
-		return DIR_UP;
+		return DIR_DOWN;
 	}
 	else if (angle > 135 && angle <= 225) {
 		return DIR_LEFT;
 	}
 	else {
-		return DIR_DOWN;
+		return DIR_UP;
 	}
 }
 

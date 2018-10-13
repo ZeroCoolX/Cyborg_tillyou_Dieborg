@@ -1,13 +1,16 @@
-﻿  Game.cpp
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(54): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(61): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(62): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(70): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(71): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(77): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\game.cpp(78): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+﻿  Entity.cpp
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(92): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(93): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(122): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(124): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(175): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(176): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(185): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(204): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(228): warning C4800: 'SDL_bool': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(259): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(260): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(262): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\mitinz\documents\development\udemy_cyborgtillyoudieborg\cyborg_tillyou_dieborg\cyborg_tillyou_dieborg\entity.cpp(263): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   cyborg_tillyou_dieborg.vcxproj -> C:\Users\Mitinz\Documents\development\Udemy_CyborgTillYouDieborg\cyborg_tillyou_dieborg\Debug\cyborg_tillyou_dieborg.exe
   cyborg_tillyou_dieborg.vcxproj -> C:\Users\Mitinz\Documents\development\Udemy_CyborgTillYouDieborg\cyborg_tillyou_dieborg\Debug\cyborg_tillyou_dieborg.pdb (Partial PDB)

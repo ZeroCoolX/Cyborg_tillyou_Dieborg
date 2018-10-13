@@ -3,6 +3,7 @@
 #include "DrawingFunctions.h"
 #include "SDL_mixer.h"
 #include "Globals.h"
+#include "Game.h"
 
 int main(int argc, char** argv) {
 	// Setup SDL
@@ -56,20 +57,23 @@ int main(int argc, char** argv) {
 	}
 
 	// Load up a texture to draw
-	string resPath = get_resource_path();
-	SDL_Texture* texture = load_texture(resPath + "map.png", Globals::renderer);
+	//string resPath = get_resource_path();
+	//SDL_Texture* texture = load_texture(resPath + "map.png", Globals::renderer);
 
-	// Run game for 5000 ticks (5000ms)
-	while (SDL_GetTicks() < 5000) {
-		// Clear the screen
-		SDL_RenderClear(Globals::renderer);
-		// Draw what we want to the screen
-		render_texture(texture, Globals::renderer, 0, 0);
-		// Show image we rendered
-		SDL_RenderPresent(Globals::renderer);
-	}
+	//// Run game for 5000 ticks (5000ms)
+	//while (SDL_GetTicks() < 5000) {
+	//	// Clear the screen
+	//	SDL_RenderClear(Globals::renderer);
+	//	// Draw what we want to the screen
+	//	render_texture(texture, Globals::renderer, 0, 0);
+	//	// Show image we rendered
+	//	SDL_RenderPresent(Globals::renderer);
+	//}
 
-	cleanup(texture);
+	Game game;
+	game.update();
+
+	//cleanup(texture);
 	cleanup(Globals::renderer);
 	cleanup(window);
 	

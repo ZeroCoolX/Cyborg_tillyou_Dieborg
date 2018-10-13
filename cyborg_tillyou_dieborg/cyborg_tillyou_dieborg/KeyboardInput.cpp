@@ -37,7 +37,7 @@ void KeyboardInput::update(SDL_Event* e)
 	}
 	else {
 		// Im pretty sure he's wrong...
-		if (keyStates[DOWN]) {
+		if (keyStates[UP]) {
 			// down right
 			if (keyStates[RIGHT]) {
 				m_hero->move(315); // angle
@@ -49,7 +49,7 @@ void KeyboardInput::update(SDL_Event* e)
 				m_hero->move(270); // angle
 			}
 		}
-		if (keyStates[UP]) {
+		if (keyStates[DOWN]) {
 			// up right
 			if (keyStates[RIGHT]) {
 				m_hero->move(45); // angle
@@ -66,7 +66,7 @@ void KeyboardInput::update(SDL_Event* e)
 			m_hero->move(180);
 		}
 		// Right
-		if (keyStates[LEFT] && !keyStates[UP] && !keyStates[DOWN] && !keyStates[RIGHT]) {
+		if (keyStates[RIGHT] && !keyStates[UP] && !keyStates[DOWN] && !keyStates[LEFT]) {
 			m_hero->move(0);
 		}
 	}
