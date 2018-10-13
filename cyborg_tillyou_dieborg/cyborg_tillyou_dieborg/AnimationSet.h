@@ -16,7 +16,7 @@ public:
 	~AnimationSet(); // Cleans up resources (dynamic memory e.g. textures)
 
 	Animation* get_animation(string name);
-	// TODO load_animation_set
+	void load_animation_set(string fileName, list<DataGroupType>& groupTypes, bool setColorKey = false, int transparentPixelIndex = 0, bool createWhiteTexture = false);
 };
 
 #endif // !ANIMATIONSET_H

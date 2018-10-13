@@ -16,6 +16,7 @@ public:
 	Frame* get_next_frame(Frame* currentFrame);
 	int get_end_frame_number();
 	Frame* get_frame(int frameNumber);
+	void load_animation(ifstream& file, list<DataGroupType>& groupTypes);
 };
 
 #endif // !ANIMATION_H
