@@ -5,21 +5,21 @@
 
 class GroupNumber : public Group {
 public:
-	list<float> data;
+	list<float> m_data;
 
 	GroupNumber(DataGroupType type) {
-		this->type = type;
+		m_type = type;
 	}
 
 	int number_of_data_in_group() {
-		return data.size();
+		return m_data.size();
 	}
 
 	void add_to_group(string str) {
 		stringstream ss;
 		ss << str;
 		float r;
-		data.push_back(r);
+		m_data.push_back(r);
 	}
 
 	void draw() {

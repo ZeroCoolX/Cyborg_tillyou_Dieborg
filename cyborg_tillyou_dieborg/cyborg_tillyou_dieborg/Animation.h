@@ -7,8 +7,8 @@ using namespace std;
 
 class Animation {
 public:
-	string name;
-	list<Frame> frames;
+	string m_name;
+	list<Frame> m_frames;
 
 	Animation(string name = "");
 

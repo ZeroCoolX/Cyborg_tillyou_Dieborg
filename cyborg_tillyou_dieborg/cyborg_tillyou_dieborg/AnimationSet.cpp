@@ -3,17 +3,17 @@
 
 AnimationSet::~AnimationSet()
 {
-	cleanup(spriteSheet);
-	if (whiteSpriteSheet != NULL) {
-		cleanup(whiteSpriteSheet);
+	cleanup(m_spriteSheet);
+	if (m_whiteSpriteSheet != NULL) {
+		cleanup(m_whiteSpriteSheet);
 	}
 }
 
 Animation* AnimationSet::get_animation(string name)
 {
-	list<Animation>::iterator animIterator = animations.begin();
-	while (animIterator != animations.end()) {
-		if ((*animIterator).name == name) {
+	list<Animation>::iterator animIterator = m_animations.begin();
+	while (animIterator != m_animations.end()) {
+		if ((*animIterator).m_name == name) {
 			return &(*animIterator);
 		}
 		++animIterator;
@@ -27,31 +27,31 @@ void AnimationSet::load_animation_set(string fileName, list<DataGroupType>& grou
 	string resPath = get_resource_path();
 	file.open(resPath + fileName);
 	if (file.good()) {
-		getline(file, imageName);
+		getline(file, m_imageName);
 		if (setColorKey) {
-			SDL_Surface* spriteSurface = load_surface(resPath + imageName, Globals::renderer);
+			SDL_Surface* spriteSurface = load_surface(resPath + m_imageName, Globals::renderer);
 
 			// For transparency we will grab the [transparentPixelIndex] from the surface we just made
 			SDL_Color* transparentPixel = &spriteSurface->format->palette->colors[transparentPixelIndex];
 			SDL_SetColorKey(spriteSurface, 1, SDL_MapRGB(spriteSurface->format, transparentPixel->r, transparentPixel->g, transparentPixel->b));
 
-			spriteSheet = convert_surface_to_texture(spriteSurface, Globals::renderer, false);
+			m_spriteSheet = convert_surface_to_texture(spriteSurface, Globals::renderer, false);
 
 			if (createWhiteTexture) {
 				SDL_Surface* whiteSurface = load_surface(resPath + "allwhite.png", Globals::renderer);
 				surface_palette_swap(spriteSurface, whiteSurface);
 				SDL_SetColorKey(spriteSurface, 1, SDL_MapRGB(spriteSurface->format, transparentPixel->a, transparentPixel->g, transparentPixel->b));
-				whiteSpriteSheet = convert_surface_to_texture(spriteSurface, Globals::renderer, false);
+				m_whiteSpriteSheet = convert_surface_to_texture(spriteSurface, Globals::renderer, false);
 				
 				cleanup(whiteSurface);
 			}
 			else {
-				whiteSpriteSheet = NULL;
+				m_whiteSpriteSheet = NULL;
 			}
 			cleanup(spriteSurface);
 		}
 		else {
-			spriteSheet = load_texture(resPath + imageName, Globals::renderer);
+			m_spriteSheet = load_texture(resPath + m_imageName, Globals::renderer);
 		}
 
 		string buffer;
@@ -65,7 +65,7 @@ void AnimationSet::load_animation_set(string fileName, list<DataGroupType>& grou
 		for (int i = 0; i < numberOfAnimations; ++i) {
 			Animation newAnimation;
 			newAnimation.load_animation(file, groupTypes);
-			animations.push_back(newAnimation);
+			m_animations.push_back(newAnimation);
 		}
 	}
 	file.close();

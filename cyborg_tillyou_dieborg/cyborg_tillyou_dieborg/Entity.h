@@ -12,41 +12,41 @@ public:
 	static const int DIR_UP, DIR_RIGHT, DIR_DOWN, DIR_LEFT, DIR_NONE;
 
 	// quick lable to see what the entity is up to
-	int state;
+	int m_state;
 
 	// position
 	float x, y;
-	int direction;
+	int m_direction;
 	
 	// physical mass
-	bool solid = true; // can things pass through me, default to everything true
-	bool collideWithSolids = true;
+	bool m_solid = true; // can things pass through me, default to everything true
+	bool m_collideWithSolids = true;
 	
 	// state
-	bool active = true; // entity turned [on] or off
-	string type = "entity";
+	bool m_active = true; // entity turned [on] or off
+	string m_type = "entity";
 	
 	// movement
-	bool moving; // is the entity moving
-	float moveAngle;
-	float moveSpeed;
-	float maxMoveSpeed;
-	float pushbackAngle;
-	float pushbackAmount;
-	float moveLerp = 4;
+	bool m_moving; // is the entity moving
+	float m_moveAngle;
+	float m_moveSpeed;
+	float m_maxMoveSpeed;
+	float m_pushbackAngle;
+	float m_pushbackAmount;
+	float m_moveLerp = 4;
 	// possible deprecated and can be removed
-	float totalXMove, totalYMove;
+	float m_totalXMove, m_totalYMove;
 
 	// collision
-	SDL_Rect collisionBox; // Box describing the size of the collider
-	SDL_Rect lastCollisionBox; // Last position of our collision box
-	int collisionBoxWidth, collisionBoxHeight;
-	float collisionBoxYOffset; // From my entities y value, where should I sit this collisionBox
+	SDL_Rect m_collisionBox; // Box describing the size of the collider
+	SDL_Rect m_lastCollisionBox; // Last position of our collision box
+	int m_collisionBoxWidth, m_collisionBoxHeight;
+	float m_collisionBoxYOffset; // From my entities y value, where should I sit this collisionBox
 
-	AnimationSet* animSet; // All possible animations for entity
-	Animation* currentAnim; // Currently used animation
-	Frame* currentFrame;
-	float frameTimer; // Helps animate frame to frame
+	AnimationSet* m_animSet; // All possible animations for entity
+	Animation* m_currentAnim; // Currently used animation
+	Frame* m_currentFrame;
+	float m_frameTimer; // Helps animate frame to frame
 
 public:
 // VIRTUAL FUNCTIONS

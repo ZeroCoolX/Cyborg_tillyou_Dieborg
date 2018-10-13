@@ -6,15 +6,15 @@ Group* GroupBuilder::build_group(DataGroupType dataType)
 {
 	Group* group = NULL;
 
-	if (dataType.dataType == DataGroupType::DATATYPE_NUMBER)
+	if (dataType.m_dataType == DataGroupType::DATATYPE_NUMBER)
 	{
 		group = new GroupNumber(dataType);
 	}
-	else if (dataType.dataType == DataGroupType::DATATYPE_POSITION)
+	else if (dataType.m_dataType == DataGroupType::DATATYPE_POSITION)
 	{
 		group = new GroupPosition(dataType);
 	}
-	else if (dataType.dataType == DataGroupType::DATATYPE_BOX)
+	else if (dataType.m_dataType == DataGroupType::DATATYPE_BOX)
 	{
 		group = new GroupBox(dataType);
 	}
@@ -37,9 +37,9 @@ void GroupBuilder::build_groups(list<DataGroupType> groupTypes, list<Group*>& gr
 Group* GroupBuilder::add_group_string_to_group(string name, list<Group*>& groups)
 {
 	DataGroupType dgt;
-	dgt.dataType = DataGroupType::DATATYPE_STRING;
-	dgt.groupName = name;
-	dgt.singleItem = false;
+	dgt.m_dataType = DataGroupType::DATATYPE_STRING;
+	dgt.m_groupName = name;
+	dgt.m_singleItem = false;
 	Group* group = new GroupString(dgt);
 	groups.push_back(group); //ok, we just added some random group on the fly for this frame only. cool, I hope
 	return group;
@@ -107,7 +107,7 @@ Group* GroupBuilder::find_group_by_name(string name, list<Group*>& groups)
 {
 	for (list<Group*>::iterator group = groups.begin(); group != groups.end(); group++)
 	{
-		if (name == (*group)->type.groupName)
+		if (name == (*group)->m_type.m_groupName)
 			return (*group);
 	}
 

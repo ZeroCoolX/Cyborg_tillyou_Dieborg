@@ -5,14 +5,14 @@
 
 class GroupPosition : public Group {
 public:
-	list<SDL_Point> data;
+	list<SDL_Point> m_data;
 
 	GroupPosition(DataGroupType type) {
-		this->type = type;
+		m_type = type;
 	}
 
 	int number_of_data_in_group() {
-		return data.size();
+		return m_data.size();
 	}
 
 	void add_to_group(string str) {
@@ -20,7 +20,7 @@ public:
 		ss << str;
 		SDL_Point point;
 		ss >> point.x >> point.y;
-		data.push_back(point);
+		m_data.push_back(point);
 	}
 
 	void draw() {

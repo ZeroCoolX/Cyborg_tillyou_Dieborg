@@ -2,37 +2,37 @@
 
 const int TimeController::PLAY_STATE = 0, TimeController::PAUSE_STATE = 1;
 
-TimeController::TimeController():deltaTimeInSeconds(0), lastUpdate(0)
+TimeController::TimeController():m_deltaTimeInSeconds(0), m_lastUpdate(0)
 {
-	timeState = PLAY_STATE;
+	m_timeState = PLAY_STATE;
 }
 
 void TimeController::update_time()
 {
-	if (timeState == PAUSE_STATE) {
-		deltaTimeInSeconds = 0;
+	if (m_timeState == PAUSE_STATE) {
+		m_deltaTimeInSeconds = 0;
 	}
 	else {
-		Uint32 timeDiff = SDL_GetTicks() - lastUpdate;
-		deltaTimeInSeconds = timeDiff / 1000.0; // Move miliseconds into the decimal place area e.g. 104 = 0.104s
+		Uint32 timeDiff = SDL_GetTicks() - m_lastUpdate;
+		m_deltaTimeInSeconds = timeDiff / 1000.0; // Move miliseconds into the decimal place area e.g. 104 = 0.104s
 	}
-	lastUpdate = SDL_GetTicks();
+	m_lastUpdate = SDL_GetTicks();
 }
 
 void TimeController::pause()
 {
-	timeState = PAUSE_STATE;
+	m_timeState = PAUSE_STATE;
 }
 
 void TimeController::resume()
 {
-	timeState = PLAY_STATE;
+	m_timeState = PLAY_STATE;
 }
 
 void TimeController::reset()
 {
-	deltaTimeInSeconds = 0;
-	lastUpdate = SDL_GetTicks();
+	m_deltaTimeInSeconds = 0;
+	m_lastUpdate = SDL_GetTicks();
 }
 
 // Builds a global TimeController object for use anywhere

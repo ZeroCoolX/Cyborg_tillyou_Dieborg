@@ -4,18 +4,18 @@ void Frame::draw(SDL_Texture* spriteSheet, float x, float y)
 {
 	SDL_Rect destination; // Where we want to draw this frame
 	// set position
-	destination.x = x - offset.x;
-	destination.y = y - offset.y;
+	destination.x = x - m_offset.x;
+	destination.y = y - m_offset.y;
 	// set dimensions
-	destination.w = clip.w;
-	destination.h = clip.h;
+	destination.w = m_clip.w;
+	destination.h = m_clip.h;
 
-	render_texture(spriteSheet, Globals::renderer, destination, &clip);
+	render_texture(spriteSheet, Globals::renderer, destination, &m_clip);
 }
 
 void Frame::load_frame(ifstream & file, list<DataGroupType>& groupTypes)
 {
-	GroupBuilder::build_groups(groupTypes, frameData);
+	GroupBuilder::build_groups(groupTypes, m_frameData);
 
 	string buffer;
 	// frame: did data saying this is a frame
@@ -26,28 +26,28 @@ void Frame::load_frame(ifstream & file, list<DataGroupType>& groupTypes)
 	stringstream ss;
 	buffer = Globals::clip_off_data_header(buffer);
 	ss << buffer;
-	ss >> clip.x >> clip.y >> clip.w >> clip.h;
+	ss >> m_clip.x >> m_clip.y >> m_clip.w >> m_clip.h;
 
 	// offset:
 	getline(file, buffer);
 	ss.clear();
 	buffer = Globals::clip_off_data_header(buffer);
 	ss << buffer;
-	ss >> offset.x >> offset.y;
+	ss >> m_offset.x >> m_offset.y;
 
 	// duration:
 	getline(file, buffer);
 	ss.clear();
 	buffer = Globals::clip_off_data_header(buffer);
 	ss << buffer;
-	ss >> duration;
+	ss >> m_duration;
 
 	// index:
 	getline(file, buffer);
 	ss.clear();
 	buffer = Globals::clip_off_data_header(buffer);
 	ss << buffer;
-	ss >> frameNumber;
+	ss >> m_frameNumber;
 
-	GroupBuilder::load_groups(file, frameData);
+	GroupBuilder::load_groups(file, m_frameData);
 }

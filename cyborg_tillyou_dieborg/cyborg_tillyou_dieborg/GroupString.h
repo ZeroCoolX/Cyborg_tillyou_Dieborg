@@ -5,21 +5,21 @@
 
 class GroupString : public Group {
 public:
-	list<string> data;
+	list<string> m_data;
 
 	GroupString(DataGroupType type) {
-		this->type = type;
+		m_type = type;
 	}
 
 	int number_of_data_in_group() {
-		return data.size();
+		return m_data.size();
 	}
 
 	void add_to_group(string str) {
 		if (str[0] == ' ') {
 			str.erase(0, 1);
 		}
-		data.push_back(str);
+		m_data.push_back(str);
 	}
 
 	void draw() {

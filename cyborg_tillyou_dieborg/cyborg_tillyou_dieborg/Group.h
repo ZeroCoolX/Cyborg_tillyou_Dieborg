@@ -16,12 +16,12 @@ using namespace std;
 
 class Group {
 public:
-	DataGroupType type; // Decribes its name, type, and other rules
+	DataGroupType m_type; // Decribes its name, type, and other rules
 	Group() {
 		// Do nothing
 	}
 	Group(DataGroupType type) {
-		this->type = type;
+		m_type = type;
 	}
 	// How many bitss of data in here
 	virtual int number_of_data_in_group() = 0;

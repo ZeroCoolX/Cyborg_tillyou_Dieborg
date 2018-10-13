@@ -14,12 +14,12 @@ using namespace std;
 
 class Frame {
 public:
-	int frameNumber; // or index
-	SDL_Rect clip; // Its the region of the spritesheet where this frame is
-	float duration; // how long the frame runs for
-	SDL_Point offset; // Pivot point to help align frames in animation
+	int m_frameNumber; // or index
+	SDL_Rect m_clip; // Its the region of the spritesheet where this frame is
+	float m_duration; // how long the frame runs for
+	SDL_Point m_offset; // Pivot point to help align frames in animation
 
-	list<Group*> frameData; // Holds groups of additional data for the frame
+	list<Group*> m_frameData; // Holds groups of additional data for the frame
 
 	void draw(SDL_Texture* spriteSheet, float x, float y);
 	void load_frame(ifstream& file, list<DataGroupType>& groupTypes);

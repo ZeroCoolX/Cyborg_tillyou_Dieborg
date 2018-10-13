@@ -8,11 +8,11 @@ class TimeController {
 public:
 	static const int PLAY_STATE, PAUSE_STATE;
 
-	int timeState;
+	int m_timeState;
 	// Last time we checked how many ticks we were up to
-	Uint32 lastUpdate;
+	Uint32 m_lastUpdate;
 	// Time since the last frame was renderered onto the screen
-	float deltaTimeInSeconds;
+	float m_deltaTimeInSeconds;
 
 	TimeController();
 	void update_time(); 

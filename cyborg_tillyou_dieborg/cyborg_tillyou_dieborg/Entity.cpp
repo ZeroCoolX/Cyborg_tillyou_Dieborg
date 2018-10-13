@@ -10,28 +10,28 @@ void Entity::update(){}// override me to do something useful
 
 void Entity::draw()
 {
-	if (currentFrame != NULL && active) {
-		currentFrame->draw(animSet->spriteSheet, x, y);
+	if (m_currentFrame != NULL && m_active) {
+		m_currentFrame->draw(m_animSet->m_spriteSheet, x, y);
 	}
 
 	// draw collision box
-	if (solid && Globals::debugging) {
+	if (m_solid && Globals::debugging) {
 		SDL_SetRenderDrawColor(Globals::renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
-		SDL_RenderDrawRect(Globals::renderer, &collisionBox);
+		SDL_RenderDrawRect(Globals::renderer, &m_collisionBox);
 	}
 }
 
 void Entity::move(float angle)
 {
-	moving = true;
-	moveSpeed = maxMoveSpeed;
-	moveAngle = angle;
+	m_moving = true;
+	m_moveSpeed = m_maxMoveSpeed;
+	m_moveAngle = angle;
 
-	int newDirection = angle_to_direction(moveAngle);
+	int newDirection = angle_to_direction(m_moveAngle);
 	// if direction changed update current animation
-	if (direction != newDirection) {
-		direction = newDirection;
-		change_animation(state, false);
+	if (m_direction != newDirection) {
+		m_direction = newDirection;
+		change_animation(m_state, false);
 	}
 }
 
@@ -39,74 +39,74 @@ void Entity::update_movement()
 {
 	update_collision_box();
 	// store collision box before we move
-	lastCollisionBox = collisionBox;
+	m_lastCollisionBox = m_collisionBox;
 
 	// reset total moves
-	totalXMove = 0;
-	totalYMove = 0;
+	m_totalXMove = 0;
+	m_totalYMove = 0;
 
-	if (moveSpeed > 0) {
-		float moveDist = moveSpeed*TimeController::timeController.deltaTimeInSeconds*moveLerp;
+	if (m_moveSpeed > 0) {
+		float moveDist = m_moveSpeed*TimeController::timeController.m_deltaTimeInSeconds*m_moveLerp;
 		if (moveDist > 0) {
-			float xMove = moveDist* (cos(moveAngle * Globals::PI / 180));
-			float yMove = moveDist* (sin(moveAngle * Globals::PI / 180));
+			float xMove = moveDist* (cos(m_moveAngle * Globals::PI / 180));
+			float yMove = moveDist* (sin(m_moveAngle * Globals::PI / 180));
 
 			x += xMove;
 			y += yMove;
 
-			totalXMove = xMove;
-			totalYMove = yMove;
+			m_totalXMove = xMove;
+			m_totalYMove = yMove;
 
-			if (!moving) {
-				moveSpeed -= moveDist;
+			if (!m_moving) {
+				m_moveSpeed -= moveDist;
 			}
 		}
 	}
 
-	if (pushbackAmount > 0) {
-		float pushbackDist = pushbackAmount*TimeController::timeController.deltaTimeInSeconds*moveLerp;
+	if (m_pushbackAmount > 0) {
+		float pushbackDist = m_pushbackAmount*TimeController::timeController.m_deltaTimeInSeconds*m_moveLerp;
 		if (pushbackDist > 0) {
-			float xMove = pushbackDist* (cos(pushbackAngle * Globals::PI / 180));
-			float yMove = pushbackDist* (sin(pushbackAngle * Globals::PI / 180));
+			float xMove = pushbackDist* (cos(m_pushbackAngle * Globals::PI / 180));
+			float yMove = pushbackDist* (sin(m_pushbackAngle * Globals::PI / 180));
 
 			x += xMove;
 			y += yMove;
 
-			totalXMove += xMove;
-			totalYMove += yMove;
-			pushbackAmount -= pushbackDist;
+			m_totalXMove += xMove;
+			m_totalYMove += yMove;
+			m_pushbackAmount -= pushbackDist;
 		}
 		else {
-			pushbackAmount = 0;
+			m_pushbackAmount = 0;
 		}
 	}
 	// now that we've moved, move the collision box up to where we are now
 	update_collision_box();
 	// To help with collision checking, union collisionCox with lastCollisionBox
-	SDL_UnionRect(&collisionBox, &lastCollisionBox, &collisionBox);
+	SDL_UnionRect(&m_collisionBox, &m_lastCollisionBox, &m_collisionBox);
 }
 
 void Entity::update_collision_box()
 {
 	// center collision box 
-	collisionBox.x = x - collisionBox.w / 2;
-	collisionBox.y = y + collisionBoxYOffset;
-	collisionBox.w = collisionBoxWidth;
-	collisionBox.h = collisionBoxHeight;
+	m_collisionBox.x = x - m_collisionBox.w / 2;
+	m_collisionBox.y = y + m_collisionBoxYOffset;
+	m_collisionBox.w = m_collisionBoxWidth;
+	m_collisionBox.h = m_collisionBoxHeight;
 }
 
 void Entity::update_collisions()
 {
 	// Don't want to check for collisions if standing still - just implementation for now
-	if (active && collideWithSolids && (moveSpeed > 0 || pushbackAmount > 0)) {
+	if (m_active && m_collideWithSolids && (m_moveSpeed > 0 || m_pushbackAmount > 0)) {
 		// List of potential collisions
 		// this->collisionBox = union of where they were before and where they are now
 		list<Entity*> collisions;
 		for (auto entity = Entity::entities.begin(); entity != Entity::entities.end(); ++entity) {
-			if ((*entity)->active  // must be active
-				&& (*entity)->type != this->type // don't collide with same types (wall on wall or enemy on enemy)
-				&& (*entity)->solid // must be solid to collide
-				&& Entity::check_collides_with(collisionBox, (*entity)->collisionBox)) // colliders overlap 
+			if ((*entity)->m_active  // must be active
+				&& (*entity)->m_type != this->m_type // don't collide with same types (wall on wall or enemy on enemy)
+				&& (*entity)->m_solid // must be solid to collide
+				&& Entity::check_collides_with(m_collisionBox, (*entity)->m_collisionBox)) // colliders overlap 
 			{
 				collisions.push_back((*entity));
 			}
@@ -118,31 +118,31 @@ void Entity::update_collisions()
 			// Multisample check for collisions from where we started to where we are planning to move to
 			// Calculate sample distance we are going to travel between checks
 			float boxTravelChunk = 0;
-			if (collisionBox.w < collisionBox.h) {
-				boxTravelChunk = collisionBox.w / 4;
+			if (m_collisionBox.w < m_collisionBox.h) {
+				boxTravelChunk = m_collisionBox.w / 4;
 			}else{
-				boxTravelChunk = collisionBox.h / 4;
+				boxTravelChunk = m_collisionBox.h / 4;
 			}
 
 			// Use sampleBox to check for collisions from start point to end point moving at boxTravelChunk each sample
-			SDL_Rect sampleBox = lastCollisionBox;
-			float movementAngle = Entity::angle_between_two_rects(lastCollisionBox, collisionBox);
+			SDL_Rect sampleBox = m_lastCollisionBox;
+			float movementAngle = Entity::angle_between_two_rects(m_lastCollisionBox, m_collisionBox);
 
 			bool foundCollision = false;
 			while (!foundCollision) {
 				SDL_Rect intersection;
 				for (auto entity = collisions.begin(); entity != collisions.end(); ++entity) {
-					if (SDL_IntersectRect(&sampleBox, &((*entity)->collisionBox), &intersection)) {
+					if (SDL_IntersectRect(&sampleBox, &((*entity)->m_collisionBox), &intersection)) {
 						// This indicates there was a collision - update!
 						foundCollision = true;
-						moveSpeed = 0;
-						moving = false;
+						m_moveSpeed = 0;
+						m_moving = false;
 						// Update pushback basically the reverse angle 
-						pushbackAngle = angle_between_two_entities((*entity), this);
+						m_pushbackAngle = angle_between_two_entities((*entity), this);
 						
 						if (intersection.w < intersection.h) {
 							// Check coming from left or right
-							if (lastCollisionBox.x + lastCollisionBox.w / 2 < (*entity)->collisionBox.x + (*entity)->collisionBox.w / 2) {
+							if (m_lastCollisionBox.x + m_lastCollisionBox.w / 2 < (*entity)->m_collisionBox.x + (*entity)->m_collisionBox.w / 2) {
 								// came from left, move left for pushback
 								sampleBox.x -= intersection.w;
 							}
@@ -152,7 +152,7 @@ void Entity::update_collisions()
 							}
 						}
 						else {
-							if (lastCollisionBox.y + lastCollisionBox.h / 2 < (*entity)->collisionBox.y + (*entity)->collisionBox.h / 2) {
+							if (m_lastCollisionBox.y + m_lastCollisionBox.h / 2 < (*entity)->m_collisionBox.y + (*entity)->m_collisionBox.h / 2) {
 								// came from up, move up for pushback
 								sampleBox.y -= intersection.h;
 							}
@@ -163,12 +163,12 @@ void Entity::update_collisions()
 						}
 					}
 				}
-				if (foundCollision || (sampleBox.x == collisionBox.x && sampleBox.y == collisionBox.y)) {
+				if (foundCollision || (sampleBox.x == m_collisionBox.x && sampleBox.y == m_collisionBox.y)) {
 					break;
 				}
 
 				// Move sample box to next check spot
-				if (distance_between_two_rects(sampleBox, collisionBox) > boxTravelChunk) {
+				if (distance_between_two_rects(sampleBox, m_collisionBox) > boxTravelChunk) {
 					float xMove = boxTravelChunk*(cos(movementAngle*Globals::PI / 180));
 					float yMove = boxTravelChunk*(sin(movementAngle*Globals::PI / 180));
 
@@ -176,14 +176,14 @@ void Entity::update_collisions()
 					sampleBox.y += yMove;
 				}
 				else {
-					sampleBox = collisionBox;
+					sampleBox = m_collisionBox;
 				}
 			}
 			if (foundCollision) {
 				// move our entity to where the sample box ended up
-				pushbackAmount = pushbackAmount / 2;
+				m_pushbackAmount = m_pushbackAmount / 2;
 				x = sampleBox.x + sampleBox.w / 2;
-				y = sampleBox.y - collisionBoxYOffset;
+				y = sampleBox.y - m_collisionBoxYOffset;
 			}
 			update_collision_box();
 		}
@@ -280,7 +280,7 @@ bool Entity::entity_compare(const Entity* const& entity, const Entity* const& ot
 void Entity::remove_inactive_entities(list<Entity*>* entityList, bool deleteEntities)
 {
 	for (auto entityIterator = entityList->begin(); entityIterator != entityList->end();/*might be able to put ++ back in....*/) {
-		if (!(*entityIterator)->active) {
+		if (!(*entityIterator)->m_active) {
 			if (deleteEntities) {
 				delete (*entityIterator);
 			}

@@ -1,10 +1,10 @@
 #include "Animation.h"
 
-Animation::Animation(string name):name(name){}
+Animation::Animation(string name):m_name(name){}
 
 int Animation::get_next_frame_number(int frameNumber)
 {
-	if (frameNumber + 1 < frames.size()) {
+	if (frameNumber + 1 < m_frames.size()) {
 		return frameNumber + 1;
 	}
 	return 0;
@@ -12,20 +12,20 @@ int Animation::get_next_frame_number(int frameNumber)
 
 Frame* Animation::get_next_frame(Frame* currentFrame)
 {
-	return get_frame(get_next_frame_number(currentFrame->frameNumber));
+	return get_frame(get_next_frame_number(currentFrame->m_frameNumber));
 }
 
 int Animation::get_end_frame_number()
 {
-	return frames.size() - 1;
+	return m_frames.size() - 1;
 }
 
 Frame* Animation::get_frame(int frameNumber)
 {
-	if (frames.size() == 0) {
+	if (m_frames.size() == 0) {
 		return NULL;
 	}
-	list<Frame>::iterator frameIterator = frames.begin();
+	list<Frame>::iterator frameIterator = m_frames.begin();
 	
 	int counter = 0;
 	for (counter = 0; counter < frameNumber && counter < get_end_frame_number(); ++counter) {
@@ -40,7 +40,7 @@ Frame* Animation::get_frame(int frameNumber)
 
 void Animation::load_animation(ifstream& file, list<DataGroupType>& groupTypes)
 {
-	getline(file, name);
+	getline(file, m_name);
 	string buffer;
 
 	// frames:
@@ -53,6 +53,6 @@ void Animation::load_animation(ifstream& file, list<DataGroupType>& groupTypes)
 	for (int i = 0; i < numberOfFrames; ++i) {
 		Frame newFrame;
 		newFrame.load_frame(file, groupTypes);
-		frames.push_back(newFrame);
+		m_frames.push_back(newFrame);
 	}
 }

@@ -33,6 +33,7 @@
     <ClInclude Include="GroupNumber.h" />
     <ClInclude Include="GroupPosition.h" />
     <ClInclude Include="GroupString.h" />
+    <ClInclude Include="LivingEntity.h" />
     <ClInclude Include="RandomNumber.h" />
     <ClInclude Include="ResPath.h" />
     <ClInclude Include="TimeController.h" />
@@ -46,6 +47,7 @@
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="GroupBuilder.cpp" />
+    <ClCompile Include="LivingEntity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RandomNumber.cpp" />
     <ClCompile Include="ResPath.cpp" />

@@ -5,14 +5,14 @@
 
 class GroupBox : public Group {
 public:
-	list<SDL_Rect> data;
+	list<SDL_Rect> m_data;
 
 	GroupBox(DataGroupType type) {
-		this->type = type;
+		m_type = type;
 	}
 
 	int number_of_data_in_group() {
-		return data.size();
+		return m_data.size();
 	}
 
 	void add_to_group(string str) {
@@ -20,7 +20,7 @@ public:
 		ss << str;
 		SDL_Rect box;
 		ss >> box.x >> box.y >> box.w >> box.h;
-		data.push_back(box);
+		m_data.push_back(box);
 	}
 
 	void draw() {
